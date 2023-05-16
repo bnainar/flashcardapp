@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/viewcardlayout"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--    xmlns:tools="http://schemas.android.com/tools"-->
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F48FB1">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarview"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="20dp"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="View Card Details" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:id="@+id/nested_scroll_view"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+        <!--        android:isScrollContainer="true"-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".AddCardActivity">
+
+            <TextView
+                android:id="@+id/viewtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:text="Card body"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                 />
+
+            <TextView
+                android:id="@+id/viewbody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewtitle"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20sp"
+                android:textSize="25sp"
+                android:text="Card content"
+                android:textAlignment="center"
+                 />
+
+            <Button
+                android:id="@+id/updatebutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewbody"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text="Update Card"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:icon="@drawable/edit_48px"
+                app:iconSize="25dp" />
+
+            <Button
+                android:id="@+id/delbutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/updatebutton"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="#EC407A"
+                android:text="Delete Card"
+                android:textSize="25sp"
+                app:icon="@drawable/delete_48px"
+                app:iconSize="25dp" />
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
