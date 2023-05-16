@@ -4,40 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".UpdateCardActivity">
-    <TextView
-        android:id="@+id/updateTitleTextView"
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Edit Title"
+        android:id="@+id/til1"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        />
-    <EditText
-        android:id="@+id/updateTitleEditText"
+        android:layout_marginTop="10dp"
+        android:hint="Update title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/updateTitleEditText"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/updateTitleTextView"
-        android:text="Title"
+        android:layout_below="@id/til1"
         android:layout_marginHorizontal="20dp"
-        />
-    <TextView
-        android:id="@+id/updateBodyTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/updateTitleEditText"
-        android:text="Edit Card Content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        />
-    <EditText
-        android:id="@+id/updateBodyEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/updateBodyTextView"
-        android:text="Content"
-        android:layout_marginHorizontal="20dp"
-        />
+        android:layout_marginTop="15dp"
+        android:hint="Update Content">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/updateBodyEditText"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
 </RelativeLayout>

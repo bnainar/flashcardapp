@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Objects;
 
@@ -74,15 +76,17 @@ public class ViewCardActivity extends AppCompatActivity {
         });
     }
 
+
     private void updateDialog() {
-        AlertDialog.Builder ud = new AlertDialog.Builder(this);
+//        AlertDialog.Builder ud = new AlertDialog.Builder(this);
+        MaterialAlertDialogBuilder ud = new MaterialAlertDialogBuilder(this, com.google.android.material.R.style.ThemeOverlay_Material3_MaterialAlertDialog_Centered);
 
         LayoutInflater inflater = LayoutInflater.from(this);
         View dialogView = inflater.inflate(R.layout.activity_update_card, null);
         ud.setView(dialogView);
 
-        EditText titleET = (EditText) dialogView.findViewById(R.id.updateTitleEditText);
-        EditText bodyET = (EditText) dialogView.findViewById(R.id.updateBodyEditText);
+        TextInputEditText titleET = (TextInputEditText) dialogView.findViewById(R.id.updateTitleEditText);
+        TextInputEditText bodyET = (TextInputEditText) dialogView.findViewById(R.id.updateBodyEditText);
 
         titleET.setText(cardTitle);
         bodyET.setText(cardBody);
@@ -128,11 +132,11 @@ public class ViewCardActivity extends AppCompatActivity {
 
 
     public void delDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this, com.google.android.material.R.style.ThemeOverlay_Material3_MaterialAlertDialog_Centered);
         builder.setCancelable(true);
-        builder.setTitle("Delete card");
         builder.setIcon(R.drawable.delete_48px);
-        builder.setMessage("Do you want to delete this card?");
+        builder.setTitle("Delete card");
+        builder.setMessage("Do you want to delete this card? This action is irreversible");
         builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
             try {
                 if (db.delete("cards", "id=" + id, null) == 1) {

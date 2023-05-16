@@ -13,11 +13,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class AddCardActivity extends AppCompatActivity {
     CoordinatorLayout layout;
-    EditText titleET;
-    EditText bodyET;
+    TextInputEditText titleET;
+    TextInputEditText bodyET;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +32,8 @@ public class AddCardActivity extends AppCompatActivity {
             finish();
         });
 
-        titleET = (EditText) findViewById(R.id.editTextTitle);
-        bodyET = (EditText) findViewById(R.id.editTextContent);
+        titleET = (TextInputEditText) findViewById(R.id.editTextTitle);
+        bodyET = (TextInputEditText) findViewById(R.id.editTextContent);
         layout = (CoordinatorLayout) findViewById(R.id.addcardlayout);
 
         Button createButton = (Button) findViewById(R.id.addbutton);
