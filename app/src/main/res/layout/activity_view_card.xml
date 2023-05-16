@@ -13,15 +13,19 @@
         android:id="@+id/appbarview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F48FB1">
+        android:foregroundTint="?attr/colorPrimary">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarview"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorSecondary"
             android:elevation="20dp"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            app:title="View Card Details" />
+            app:title="View Card"
+            app:titleTextColor="?attr/colorOnSecondary" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -45,9 +49,8 @@
                 android:layout_marginEnd="20dp"
                 android:text="Card body"
                 android:textAlignment="center"
-                android:textSize="34sp"
-                android:textStyle="bold"
-                 />
+                android:textSize="40sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/viewbody"
@@ -70,7 +73,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:text="Update Card"
-                android:textColor="@color/white"
+                android:textColor="?attr/colorOnPrimary"
                 android:textSize="25sp"
                 app:icon="@drawable/edit_48px"
                 app:iconSize="25dp" />
@@ -82,7 +85,7 @@
                 android:layout_below="@id/updatebutton"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:backgroundTint="#EC407A"
+                android:backgroundTint="?attr/colorError"
                 android:text="Delete Card"
                 android:textSize="25sp"
                 app:icon="@drawable/delete_48px"

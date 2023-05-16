@@ -3,13 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
     tools:context=".UpdateCardActivity">
     <TextView
         android:id="@+id/updateTitleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Edit Title"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
         android:textSize="20sp"
         />
     <EditText
@@ -18,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/updateTitleTextView"
         android:text="Title"
+        android:layout_marginHorizontal="20dp"
         />
     <TextView
         android:id="@+id/updateBodyTextView"
@@ -25,6 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/updateTitleEditText"
         android:text="Edit Card Content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
         android:textSize="20sp"
         />
     <EditText
@@ -33,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/updateBodyTextView"
         android:text="Content"
+        android:layout_marginHorizontal="20dp"
         />
 
 </RelativeLayout>

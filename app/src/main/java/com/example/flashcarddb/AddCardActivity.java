@@ -9,7 +9,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -36,25 +35,28 @@ public class AddCardActivity extends AppCompatActivity {
         bodyET = (EditText) findViewById(R.id.editTextContent);
         layout = (CoordinatorLayout) findViewById(R.id.addcardlayout);
 
-        Button createbutton = (Button) findViewById(R.id.addbutton);
-        createbutton.setOnClickListener(v -> {
+        Button createButton = (Button) findViewById(R.id.addbutton);
+        createButton.setOnClickListener(v -> {
             String title = titleET.getText().toString();
             String body = bodyET.getText().toString();
-            try {
-                SQLiteDatabase db = openOrCreateDatabase("FlashCardDB", Context.MODE_PRIVATE, null);
-                ContentValues values = new ContentValues();
-                values.put("title", title);
-                values.put("body", body);
-                db.insert("cards", null, values);
-                db.close();
-                Snackbar snackbar = Snackbar.make(layout, "Card Added", Snackbar.LENGTH_LONG);
+            if(title.trim().equals("") ||  body.trim().equals("")){
+                Snackbar snackbar = Snackbar.make(layout, "Title and Body should not be empty", Snackbar.LENGTH_SHORT);
                 snackbar.show();
-                titleET.setText("");
-                bodyET.setText("");
-            } catch (Exception e) {
-                showMessage("SQL error", e.getMessage());
-//                    throw new RuntimeException(e);
             }
+            else{
+                try {
+                    SQLiteDatabase db = openOrCreateDatabase("FlashCardDB", Context.MODE_PRIVATE, null);
+                    ContentValues values = new ContentValues();
+                    values.put("title", title);
+                    values.put("body", body);
+                    db.insert("cards", null, values);
+                    db.close();
+                    finish();
+                } catch (Exception e) {
+                    showMessage("SQL error", e.getMessage());
+                }
+            }
+
         });
     }
 

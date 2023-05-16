@@ -16,7 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_ID = "com.example.flashcarddb.EXTRA_ID";
     SQLiteDatabase db;
     ListView listview;
-    CoordinatorLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,18 +63,13 @@ public class MainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab1);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openAddActivity();
-            }
-        });
+        ExtendedFloatingActionButton fab = (ExtendedFloatingActionButton) findViewById(R.id.addCardEfab);
+        fab.setOnClickListener(v -> openAddActivity());
 
         listview = (ListView) findViewById(R.id.list_view);
 
         db = openOrCreateDatabase("FlashCardDB", Context.MODE_PRIVATE, null);
-//        db.execSQL("CREATE TABLE IF NOT EXISTS cards(id INTEGER PRIMARY KEY AUTOINCREMENT, title VARCHAR NOT NULL, body VARCHAR NOT NULL);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS cards(id INTEGER PRIMARY KEY AUTOINCREMENT, title VARCHAR NOT NULL, body VARCHAR NOT NULL);");
         showAllCards();
     }
 
@@ -97,12 +91,9 @@ public class MainActivity extends AppCompatActivity {
 //        showMessage("Array", titlesArray[0]);
         ArrayAdapter<CardObj> adapter = new ArrayAdapter<>(this, R.layout.activity_list_view, R.id.textView, objarr);
         listview.setAdapter(adapter);
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int pos, long id) {
+        listview.setOnItemClickListener((parent, view, pos, id) -> {
 //                showMessage("Clicked", "item clicked is id:" + objarr.get(pos).id+"  name: " + objarr.get(pos).name);
-                openViewActivity(String.valueOf(objarr.get(pos).id));
-            }
+            openViewActivity(String.valueOf(objarr.get(pos).id));
         });
         c.close();
     }

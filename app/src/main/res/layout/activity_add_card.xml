@@ -2,24 +2,26 @@
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/addcardlayout"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addcardlayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!--    xmlns:tools="http://schemas.android.com/tools"-->
-
+    android:layout_height="match_parent"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarcreate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#66BB6A">
+        android:layout_height="wrap_content">
+
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarcreate"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorSecondary"
+            android:backgroundTint="?attr/colorSecondary"
+            app:navigationIcon="?attr/homeAsUpIndicator"
             app:title="Add new FlashCard"
-            app:navigationIcon="?attr/homeAsUpIndicator"/>
+            app:titleTextColor="?attr/colorOnSecondary" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -33,17 +35,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".AddCardActivity">
+
             <TextView
                 android:id="@+id/label1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Card title"
-                android:layout_marginTop="30dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginEnd="20dp"
                 android:labelFor="@id/editTextTitle"
-                android:textSize="25sp"
-                />
+                android:text="Card title"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/editTextTitle"
@@ -61,13 +63,12 @@
                 android:id="@+id/label2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Card content"
+                android:layout_below="@id/editTextTitle"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_below="@id/editTextTitle"
                 android:labelFor="@id/editTextContent"
-                android:textSize="25sp"
-                />
+                android:text="Card content"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/editTextContent"
@@ -90,7 +91,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="70dp"
                 android:text="Add New Card"
-                app:icon="@drawable/add_48px" />
+                app:icon="@drawable/add_48px"
+                app:iconSize="20sp" />
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 

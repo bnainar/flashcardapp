@@ -1,8 +1,18 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.FlashcardDB" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.FlashcardDB" parent="Theme.Material3.Light.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#6200EE</item>
+        <item name="colorPrimaryVariant">#3700B3</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#81C784</item>
+        <item name="colorSecondaryVariant">#81C784</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorError">#D32F2F</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
     </style>
 
     <style name="Theme.FlashcardDB" parent="Base.Theme.FlashcardDB" />
